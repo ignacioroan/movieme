@@ -1,24 +1,18 @@
 @import '~normalize.css/normalize.css';
-@import './base';
-@import './media';
-@import './fonts';
+@import './utils';
 
 $App-mainColor: #09f;
 $App-mainColor--contrast: #fff;
 
-// custom styles
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 html {
   height: 100%;
-}
-
-body {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100%;
-  background-color: $App-mainColor;
+  box-sizing: border-box;
 }
 
 a {
@@ -35,12 +29,11 @@ a {
 }
 
 .App-title {
-  font-family: 'Permanent Marker';
+  font-family: 'Permanent Marker', sans-serif;
   font-size: 5em;
-  background-color: rgba(255,255,255, .4);
-  padding: .2em 1.2em;
-  border-radius: .8em;
-  border: .1em solid #fff;
+  color: $App-mainColor--contrast;
+  padding: 0.2em 1.2em;
+  text-align: center;
 }
 
 .App-loader {
@@ -53,44 +46,39 @@ a {
       fill: $App-mainColor--contrast;
     }
   }
-
 }
 
-// loading status
-@keyframes loading-fade-out {
-  0%     { opacity: 1; }
-  100%   { opacity: 0; display: none; }
-}
 body {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  background-color: $App-mainColor;
+  font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  &.is-home .wrapper-MovieSearcher,
+  .App-loader {
+    height: 9.375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &:not(.is-loading) {
     .App-loader {
       display: none;
-      // animation: loading-fade-out .1s forwards;
     }
   }
+
   &.is-loading {
-    .wrapper_MovieGrid {
-      // display: none;
-      animation: loading-fade-out .1s forwards;
+    .wrapper-MovieGrid,
+    .wrapper-MovieSearcher {
+      display: none;
     }
   }
-}
-
-// used to hide content visually but not for screen readers
-.u-srOnly {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-@keyframes icon-spin {
-  0%     { transform: rotate(0deg); }
-  100%   { transform: rotate(360deg); }
-}
-
-.u-isSpinning {
-  animation: icon-spin 2s infinite linear;
+  &:not(.is-home) {
+    flex-wrap: wrap;
+    .App-title {
+      flex: 1;
+    }
+  }
 }

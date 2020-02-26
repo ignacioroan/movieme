@@ -6,10 +6,9 @@ const defaultModel = {
   items: [],
   sortBy: 'title',
   order: 'asc',
-}
+};
 
 export class MovieGrid {
-
   constructor(props = defaultModel) {
     const { items, sortBy, order } = props;
     this.items = items;
@@ -17,9 +16,15 @@ export class MovieGrid {
     this.order = order;
   }
 
+  clearList() {
+    this.items.length = 0;
+    const movieGridDOM = document.getElementById('wrapper_MovieGrid');
+    movieGridDOM.innerHTML = gridTemplate;
+  }
+
   updateList(item) {
     this.items = item;
-    this.orderList(this.sortBy, this.order);
+    this.orderList(this.order);
   }
 
   setSortBy(field) {
@@ -28,10 +33,12 @@ export class MovieGrid {
 
   toggleOrder() {
     this.order = this.order === 'asc' ? 'desc' : 'asc';
+    this.orderList();
+    this.paintList();
   }
 
-  orderList(by = this.sortBy, direction = this.order) {
-    this.items.sort(function (a, b) {
+  orderList(direction = this.order, by = this.sortBy) {
+    this.items.sort(function(a, b) {
       if (a[by] > b[by]) {
         return direction === 'asc' ? 1 : -1;
       }
@@ -45,7 +52,7 @@ export class MovieGrid {
   paintList() {
     const movieGridDOM = document.getElementById('wrapper_MovieGrid');
     movieGridDOM.innerHTML = gridTemplate;
-    this.items.forEach((movieCard) => {
+    this.items.forEach(movieCard => {
       const newcCard = document.createElement('div');
       newcCard.innerHTML = cardTemplate;
       newcCard.querySelector('.MovieCard-image').setAttribute('src', movieCard.poster);
@@ -62,5 +69,4 @@ export class MovieGrid {
     this.updateList(list);
     this.paintList();
   }
-
 }
