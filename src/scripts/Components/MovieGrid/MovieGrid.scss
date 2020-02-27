@@ -1,7 +1,12 @@
+// general variables
+@import './../../../stylesheets/variables.scss';
+
 // variables
-$MovieGrid-mainColor: #09f;
+$MovieGrid-mainColor: $App-mainColor;
 $MovieGrid-backgroundColor: #fff;
 $MovieGrid-breakpoint-sm: 50em;
+$MovieGrid-alert-backgroundColor: #fff;
+$MovieGrid-alert-textColor: #000;
 
 .MovieGrid {
   display: flex;
@@ -20,6 +25,7 @@ $MovieGrid-breakpoint-sm: 50em;
   max-width: 30em;
   padding: 1em;
   background-color: $MovieGrid-backgroundColor;
+  cursor: pointer;
 }
 .MovieCard-imageWrapper {
   width: 150px;
@@ -51,11 +57,26 @@ $MovieGrid-breakpoint-sm: 50em;
   margin: 0 .5em;
   font-size: 1.125em;
 }
+.MovieGrid-noMovies {
+  padding: 1em;
+  font-family: 'Permanent Marker', sans-serif;
+  background-color: $MovieGrid-alert-backgroundColor;
+  color: $MovieGrid-alert-textColor;
+  border-radius: .3em;
+  box-shadow: 1px 1px 5px 0 #333;
+  font-size: 1.2em;
+  text-align: center;
+  span {
+    font-family: $App-mainFontFamily;
+    font-size: 2em;
+  }
+}
 
 // responsiveness styles
 @media screen and (max-width: $MovieGrid-breakpoint-sm) {
   .MovieCard {
     width: 100%;
     margin: .2em 1em;
+    font-size: .875em;
   }
 }

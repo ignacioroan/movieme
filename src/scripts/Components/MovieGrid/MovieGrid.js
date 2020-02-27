@@ -88,11 +88,28 @@ export class MovieGrid {
     const movieGridDOM = document.getElementById('wrapper_MovieGrid');
     movieGridDOM.innerHTML = gridTemplate;
     this.items.forEach(movieCard => {
-      // const newcCard = document.createElement('div');
+
+      // TOIMPROVE: check that the card is not duplicated
+      // looks like omdbapi.com response some times sends duplicated movies
+      if (document.getElementById(movieCard.id)) {
+        return;
+      }
+
+      // build the card wrapper
       const newcCard = document.createElement('article');
+      newcCard.setAttribute('id', movieCard.id);
       newcCard.setAttribute('class', 'MovieCard');
       newcCard.setAttribute('role', 'button');
       newcCard.setAttribute('tabindex', '1');
+
+      // add link to the card wrapper
+      const imdbURL = `https://www.imdb.com/title/${movieCard.id}`;
+      newcCard.onclick = function(event) {
+        event.preventDefault();
+        window.open(imdbURL);
+      }
+
+      // populate the card content
       newcCard.innerHTML = cardTemplate;
       newcCard.querySelector('.MovieCard-image').setAttribute('src', movieCard.poster);
       newcCard.querySelector('.MovieCard-image').setAttribute('alt', movieCard.title);
@@ -111,5 +128,20 @@ export class MovieGrid {
   updateGrid(movieList) {
     this.updateList(movieList);
     this.paintList();
+  }
+
+  /**
+   * it updates the movie list to empty
+   * and paints a 'no movie message'
+   */
+  paintNoMovies() {
+    this.clearList();
+    const movieGridDOM = document.getElementById('wrapper_MovieGrid');
+    movieGridDOM.innerHTML = gridTemplate;
+    const noMovieMessage = document.createElement('p');
+    noMovieMessage.setAttribute('class', 'MovieGrid-noMovies');
+    noMovieMessage.setAttribute('role', 'alert');
+    noMovieMessage.innerHTML = `Ooopppss! Looks like we have not seen that one.<br/>You can try searching for 'Avengers'<br /><span>;)</span>`;
+    movieGridDOM.querySelector('#MovieGrid').appendChild(noMovieMessage);
   }
 }

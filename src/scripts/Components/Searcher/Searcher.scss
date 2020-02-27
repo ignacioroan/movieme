@@ -1,13 +1,13 @@
+// general variables
+@import './../../../stylesheets/variables.scss';
+
 // variables
-$MovieSearcher-mainColor: #09f;
+$MovieSearcher-mainColor: $App-mainColor;
 $MovieSearcher-backgroundColor: #fff;
 $MovieSearcher-isHome-backgroundColor: transparent;
-$MovieSearcher-button--primary-backgroundColor: darken($MovieSearcher-mainColor, 15%);
-$MovieSearcher-button--primary-onHover-backgroundColor: darken($MovieSearcher-mainColor, 25%);
-$MovieSearcher-button--secondary-backgroundColor: lighten($MovieSearcher-mainColor, 30%);
-$MovieSearcher-button--secondary-onHover-backgroundColor: lighten($MovieSearcher-mainColor, 20%);
-$MovieSearcher-button--primary-textColor: lighten($MovieSearcher-mainColor, 100%);
-$MovieSearcher-button--secondary-textColor: darken($MovieSearcher-mainColor, 100%);
+$MovieSearcher-button-backgroundColor: darken($MovieSearcher-mainColor, 15%);
+$MovieSearcher-button-onHover-backgroundColor: darken($MovieSearcher-mainColor, 25%);
+$MovieSearcher-button-textColor: lighten($MovieSearcher-mainColor, 100%);
 
 body {
   &.is-home {
@@ -42,27 +42,27 @@ body {
     border-width: 0;
     cursor: pointer;
     &.MovieSearcher-button--primary {
-      background-color: $MovieSearcher-button--primary-backgroundColor;
-      color: $MovieSearcher-button--primary-textColor;
+      background-color: $MovieSearcher-button-backgroundColor;
+      color: $MovieSearcher-button-textColor;
       &:focus,
       &:hover,
       &:active {
-        background-color: $MovieSearcher-button--primary-onHover-backgroundColor;
+        background-color: $MovieSearcher-button-onHover-backgroundColor;
       }
     }
     &.MovieSearcher-button--secondary {
       display: flex;
       justify-content: center;
       min-width: 3.25em;
-      background-color: $MovieSearcher-button--secondary-backgroundColor;
-      color: $MovieSearcher-button--secondary-textColor;
+      background-color: $MovieSearcher-button-backgroundColor;
+      color: $MovieSearcher-button-textColor;
       &:focus,
       &:hover,
       &:active {
-        background-color: $MovieSearcher-button--secondary-onHover-backgroundColor;
+        background-color: $MovieSearcher-button-onHover-backgroundColor;
       }
       .iconFill {
-        fill: $MovieSearcher-button--secondary-textColor;
+        fill: $MovieSearcher-button-textColor;
       }
     }
 

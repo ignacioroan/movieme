@@ -132,7 +132,8 @@ export class Searcher {
         } else {
 
           _toggleLoadingStatus(); // remove loading status
-          // TOIMPROVE: display a message 'that is not a movie'
+          _setHome(false); // remove home status
+          movieGrid.paintNoMovies();
           console.error(rawData.Error);
 
         }
