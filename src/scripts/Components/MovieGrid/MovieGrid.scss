@@ -1,6 +1,7 @@
 // variables
 $MovieGrid-mainColor: #09f;
 $MovieGrid-backgroundColor: #fff;
+$MovieGrid-breakpoint-sm: 50em;
 
 .MovieGrid {
   display: flex;
@@ -10,12 +11,13 @@ $MovieGrid-backgroundColor: #fff;
 }
 .MovieCard {
   display: flex;
+  align-items: flex-start;
   border-radius: .1em;
   overflow: hidden;
   box-shadow: 0 0 3px 1px #666;
   margin: .2em;
-  max-width: 35em;
-  height: 17.5em;
+  width: calc(50% - (.2em * 2));
+  max-width: 30em;
   padding: 1em;
   background-color: $MovieGrid-backgroundColor;
 }
@@ -24,16 +26,17 @@ $MovieGrid-backgroundColor: #fff;
   display: flex;
   border: solid .3em $MovieGrid-backgroundColor;
   box-shadow: 0 0 0 1px $MovieGrid-mainColor;
-}
-.MovieCard-imageWrapper img {
-  width: 100%;
+  img {
+    width: 100%;
+  }
 }
 .MovieCard-content {
   flex: 1;
-  padding: 1em;
-}
-.MovieCard-content h1 {
-  font-size: 1.5rem;
+  padding: 0 1em;
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
 }
 .MovieCard-title {
   font-size: 1em;
@@ -47,4 +50,12 @@ $MovieGrid-backgroundColor: #fff;
 .MovieCard-rating {
   margin: 0 .5em;
   font-size: 1.125em;
+}
+
+// responsiveness styles
+@media screen and (max-width: $MovieGrid-breakpoint-sm) {
+  .MovieCard {
+    width: 100%;
+    margin: .2em 1em;
+  }
 }
