@@ -1,23 +1,16 @@
 {
-  "name": "webpack-es6-sass-boilerplate",
-  "version": "0.2.0",
-  "description": "A minimalistic webpack 4 based boilerplate for building web apps",
-  "author": "Vadim Markov",
+  "name": "movieme",
+  "version": "0.0.1",
+  "description": "A Vanilla JS application to search basic information about movies",
+  "author": "Nacho Rodríguez",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vadimmarkov/webpack-es6-sass-boilerplate.git"
+    "url": "https://github.com/ignacioroan/movieme/tree/master"
   },
   "scripts": {
-    "prestart": "rimraf build && rimraf ./stats.json",
     "start": "webpack-dev-server --open --mode development",
-    "prebuild": "rimraf build && rimraf ./stats.json",
     "build": "webpack --mode production --progress --display-error-details",
-    "check-eslint-config": "eslint --print-config .eslintrc | eslint-config-prettier-check",
-    "check-stylelint-config": "stylelint-config-prettier-check",
-    "lint-code": "eslint 'src/scripts/**/*.js'",
-    "lint-style": "stylelint 'src/stylesheets/**/*.{css,scss}'",
-    "analyze": "webpack-bundle-analyzer ./stats.json"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

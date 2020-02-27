@@ -4,6 +4,7 @@
 
 * [What's this?](#whats-this)
 * [How to run the application](#how-to-run)
+* [How to build the application](#how-to-build)
 * [Accessiblity](#accessibility)
 + [About the application](#about-the-application)
   * [Look & Feel customization](customization)
@@ -36,6 +37,14 @@ The time invested in its development has been **18 hours**.
   ```
 
 Voila, the app has been opened in your browser @ [http://localhost:8080](http://localhost:8080)
+
+## <a name="how-to-build"></a>How to Build the application
+
+Once installed nodejs and all the dependencies, just run `npm run build`:
+
+  ```
+  $ npm run build
+  ```
 
 ## <a name="accessibility"></a>Accessiblity
 
