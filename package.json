@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production --progress --display-error-details",
+    "build": "webpack --mode production --progress --display-error-details"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
