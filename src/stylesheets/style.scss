@@ -1,24 +1,16 @@
 @import '~normalize.css/normalize.css';
-@import './base';
-@import './media';
-@import './fonts';
+@import './variables.scss';
+@import './utils';
 
-$App-mainColor: #09f;
-$App-mainColor--contrast: #fff;
-
-// custom styles
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 html {
   height: 100%;
-}
-
-body {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100%;
-  background-color: $App-mainColor;
+  box-sizing: border-box;
 }
 
 a {
@@ -33,14 +25,21 @@ a {
     width: 80px;
   }
 }
-
+.App-content {
+  width: 100%;
+}
 .App-title {
-  font-family: 'Permanent Marker';
+  font-family: $App-specialFontFamily;
   font-size: 5em;
-  background-color: rgba(255,255,255, .4);
-  padding: .2em 1.2em;
-  border-radius: .8em;
-  border: .1em solid #fff;
+  color: $App-mainColor--contrast;
+  padding: 0.2em 0;
+  text-align: center;
+  @media screen and (max-width: $App-breakpoint-sm) {
+    font-size: 3em;
+  }
+  &:focus {
+    outline: none; // avoid displaying programmatically focus
+  }
 }
 
 .App-loader {
@@ -53,44 +52,52 @@ a {
       fill: $App-mainColor--contrast;
     }
   }
-
 }
 
-// loading status
-@keyframes loading-fade-out {
-  0%     { opacity: 1; }
-  100%   { opacity: 0; display: none; }
-}
 body {
+  display: flex;
+  min-height: 100%;
+  background-color: $App-mainColor;
+  font-family: $App-mainFontFamily;
+  &.is-home .wrapper-MovieSearcher,
+  .App-loader {
+    height: 9.375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &.is-home {
+    justify-content: center;
+    &.is-loading .wrapper-MovieSearcher {
+      display: none;
+    }
+  }
+
   &:not(.is-loading) {
     .App-loader {
       display: none;
-      // animation: loading-fade-out .1s forwards;
     }
   }
+
   &.is-loading {
-    .wrapper_MovieGrid {
-      // display: none;
-      animation: loading-fade-out .1s forwards;
+    .wrapper-MovieGrid {
+      display: none;
     }
   }
-}
-
-// used to hide content visually but not for screen readers
-.u-srOnly {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-@keyframes icon-spin {
-  0%     { transform: rotate(0deg); }
-  100%   { transform: rotate(360deg); }
-}
-
-.u-isSpinning {
-  animation: icon-spin 2s infinite linear;
+  &:not(.is-home) {
+    flex-wrap: wrap;
+    .App-title {
+      flex: 1;
+      @media screen and (max-width: $App-breakpoint-sm) {
+        margin-top: 1.5em;
+      }
+    }
+    &.is-loading {
+      flex-direction: column;
+      align-items: center;
+      .App-title {
+        flex: 0 1 auto;
+      }
+    }
+  }
 }

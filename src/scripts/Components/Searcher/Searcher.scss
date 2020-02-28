@@ -1,97 +1,143 @@
+// general variables
+@import './../../../stylesheets/variables.scss';
+@import './../../../stylesheets/utils.scss';
+
 // variables
-$MovieSearcher-mainColor: #09f;
+$MovieSearcher-mainColor: $App-mainColor;
 $MovieSearcher-backgroundColor: #fff;
-$MovieSearcher-isFirstSearch-backgroundColor: transparent;
-$MovieSearcher-button--primary-backgroundColor: darken($MovieSearcher-mainColor, 15%);
-$MovieSearcher-button--primary-onHover-backgroundColor: darken($MovieSearcher-mainColor, 25%);
-$MovieSearcher-button--secondary-backgroundColor: lighten($MovieSearcher-mainColor, 30%);
-$MovieSearcher-button--secondary-onHover-backgroundColor: lighten($MovieSearcher-mainColor, 20%);
-$MovieSearcher-button--primary-textColor: lighten($MovieSearcher-mainColor, 100%);
-$MovieSearcher-button--secondary-textColor: darken($MovieSearcher-mainColor, 100%);
+$MovieSearcher-isHome-backgroundColor: transparent;
+$MovieSearcher-button-backgroundColor: darken($MovieSearcher-mainColor, 15%);
+$MovieSearcher-button-onHover-backgroundColor: darken($MovieSearcher-mainColor, 25%);
+$MovieSearcher-button-textColor: lighten($MovieSearcher-mainColor, 100%);
+
+body {
+  &.is-home {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@keyframes searcher-toast {
+  0% {
+    transform: translate(0, -100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 
 .wrapper-MovieSearcher {
-
   // styles that will be overwritten after the first search
-  body:not(.is-firstSearch) & {
+  body:not(.is-home) & {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: $MovieSearcher-backgroundColor;
     box-shadow: 0 0 5px 2px #333;
+    transform: translate(0, -100%);
+    animation: searcher-toast .3s forwards ease-in;
   }
-
 }
 
 .MovieSearcher {
-
   // common styles
-  background-color: $MovieSearcher-isFirstSearch-backgroundColor;
+  background-color: $MovieSearcher-isHome-backgroundColor;
   .MovieSearcher-formControl {
     line-height: 2em;
-    padding: .5em;
+    padding: 0.5em;
   }
   .MovieSearcher-button {
+    display: flex;
+    justify-content: center;
+    min-width: 3.25em;
+    height: 52px;
     line-height: 2em;
-    padding: .5em;
+    padding: 0.5em;
     font-family: 'Permanent Marker';
     border-width: 0;
     cursor: pointer;
     &.MovieSearcher-button--primary {
-      background-color: $MovieSearcher-button--primary-backgroundColor;
-      color: $MovieSearcher-button--primary-textColor;
+      background-color: $MovieSearcher-button-backgroundColor;
+      color: $MovieSearcher-button-textColor;
       &:focus,
       &:hover,
       &:active {
-        background-color: $MovieSearcher-button--primary-onHover-backgroundColor;
+        background-color: $MovieSearcher-button-onHover-backgroundColor;
+      }
+      .iconFill {
+        fill: $MovieSearcher-button-textColor;
       }
     }
     &.MovieSearcher-button--secondary {
       display: flex;
       justify-content: center;
       min-width: 3.25em;
-      background-color: $MovieSearcher-button--secondary-backgroundColor;
-      color: $MovieSearcher-button--secondary-textColor;
+      background-color: $MovieSearcher-button-backgroundColor;
+      color: $MovieSearcher-button-textColor;
       &:focus,
       &:hover,
       &:active {
-        background-color: $MovieSearcher-button--secondary-onHover-backgroundColor;
+        background-color: $MovieSearcher-button-onHover-backgroundColor;
       }
       .iconFill {
-        fill: $MovieSearcher-button--secondary-textColor;
+        fill: $MovieSearcher-button-textColor;
       }
+    }
+
+    // style to rotate the order button
+    .MovieSearcher-button--orderIcon {
+      transition: 0.5s transform;
+    }
+    &.is-flipped .MovieSearcher-button--orderIcon {
+      transform: rotate(180deg);
     }
   }
 
   // styles that will be overwritten after the first search
-  body:not(.is-firstSearch) & {
+  body:not(.is-home) & {
     display: flex;
     .MovieSearcher-formControl {
       flex: 1;
     }
+    .MovieSearcher-button {
+      &.MovieSearcher-button--primary {
+        .MovieSearcher-button--primaryLabel {
+          @extend .u-srOnly;
+        }
+      }
+    }
   }
 
   // styles before the first search has been performed
-  .is-firstSearch & {
+  .is-home & {
     width: 16.5em;
     margin: 0 auto;
     .MovieSearcher-formControl {
       width: 100%;
-      margin: 0 0 .2em;
+      margin: 0 0 0.2em;
       border-top-left-radius: 1em;
       border-top-right-radius: 1em;
     }
     .MovieSearcher-button {
       width: 100%;
-      margin: 0 0 .2em;
+      margin: 0 0 0.2em;
       border-bottom-left-radius: 1em;
       border-bottom-right-radius: 1em;
+
+      &.MovieSearcher-button--primary {
+        .MovieSearcher-button--primaryIcon {
+          margin: 0 .5em 0 0;
+          [dir="rtl"] & {
+            margin: 0 0 0 .5em;
+          }
+        }
+      }
 
       // re-order and back button is hidden before the first search
       &.MovieSearcher-button--secondary {
         display: none;
       }
-
     }
   }
 }

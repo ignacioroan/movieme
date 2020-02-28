@@ -1,29 +1,46 @@
+// general variables
+@import './../../../stylesheets/variables.scss';
+
+// variables
+$MovieGrid-mainColor: $App-mainColor;
+$MovieGrid-backgroundColor: #fff;
+$MovieGrid-alert-backgroundColor: #fff;
+$MovieGrid-alert-textColor: #000;
+
 .MovieGrid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3em;
 }
 .MovieCard {
   display: flex;
-  border-radius: .5em;
+  align-items: flex-start;
+  border-radius: .1em;
   overflow: hidden;
-  box-shadow: 2px 2px 3px 0 #666;
-  margin: 1em;
-  max-width: 35em;
-  background-color: #fff;
+  box-shadow: 0 0 3px 1px #666;
+  margin: .2em;
+  width: calc(50% - (.2em * 2));
+  max-width: 30em;
+  padding: 1em;
+  background-color: $MovieGrid-backgroundColor;
+  cursor: pointer;
 }
 .MovieCard-imageWrapper {
-  width: 150px;
-  display: flex;
-}
-.MovieCard-imageWrapper img {
-  width: 100%;
+  width: 9.375em;
+  border: solid .3em $MovieGrid-backgroundColor;
+  box-shadow: 0 0 0 1px $MovieGrid-mainColor;
+  img {
+    width: 100%;
+  }
 }
 .MovieCard-content {
   flex: 1;
-  padding: 1em;
-}
-.MovieCard-content h1 {
-  font-size: 1.5rem;
+  padding: 0 1em;
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
 }
 .MovieCard-title {
   font-size: 1em;
@@ -34,10 +51,30 @@
   font-style: italic;
   margin: 0 1em;
 }
-// .MovieCard-plot {
-//   margin: 1em;;
-// }
 .MovieCard-rating {
   margin: 0 .5em;
   font-size: 1.125em;
+}
+.MovieGrid-noMovies {
+  padding: 1em;
+  font-family: 'Permanent Marker', sans-serif;
+  background-color: $MovieGrid-alert-backgroundColor;
+  color: $MovieGrid-alert-textColor;
+  border-radius: .3em;
+  box-shadow: 1px 1px 5px 0 #333;
+  font-size: 1.2em;
+  text-align: center;
+  span {
+    font-family: $App-mainFontFamily;
+    font-size: 2em;
+  }
+}
+
+// responsiveness styles
+@media screen and (max-width: $App-breakpoint-sm) {
+  .MovieCard {
+    width: 100%;
+    margin: .2em 1em;
+    font-size: .875em;
+  }
 }
