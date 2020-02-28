@@ -87,6 +87,10 @@ const _setHome = function(value = true) {
  */
 export class Searcher {
 
+  test() {
+    return 'abc';
+  }
+
   /**
    * inits the Searcher component
    * requires the movieGrid component that provides methods to manage the movie grid

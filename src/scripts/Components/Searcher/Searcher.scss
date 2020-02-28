@@ -44,6 +44,7 @@ body {
   // common styles
   background-color: $MovieSearcher-isHome-backgroundColor;
   .MovieSearcher-formControl {
+    height: 3.375em;
     line-height: 2em;
     padding: 0.5em;
   }
@@ -51,8 +52,8 @@ body {
     display: flex;
     justify-content: center;
     min-width: 3.25em;
-    height: 52px;
-    line-height: 2em;
+    height: 3.375em;
+    line-height: 2.375em;
     padding: 0.5em;
     font-family: 'Permanent Marker';
     border-width: 0;
@@ -83,6 +84,12 @@ body {
       .iconFill {
         fill: $MovieSearcher-button-textColor;
       }
+    }
+    .MovieSearcher-button--backIcon,
+    .MovieSearcher-button--searchIcon,
+    .MovieSearcher-button--orderIcon {
+      height: 100%;
+      width: 1.5em;
     }
 
     // style to rotate the order button
@@ -126,7 +133,7 @@ body {
       border-bottom-right-radius: 1em;
 
       &.MovieSearcher-button--primary {
-        .MovieSearcher-button--primaryIcon {
+        .MovieSearcher-button--searchIcon {
           margin: 0 .5em 0 0;
           [dir="rtl"] & {
             margin: 0 0 0 .5em;
