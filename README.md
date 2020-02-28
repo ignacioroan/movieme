@@ -11,8 +11,8 @@
 * [Testing](#testing)
 + [About the application](#about-the-application)
   * [Look & Feel customization](customization)
+  * [Highlights](#highlights)
   * [Weaknesses](#weaknesses)
-  * [Sacrifices](#sacrifices)
 * [Links of interest](#links)
 * [Credits](#credits)
 
