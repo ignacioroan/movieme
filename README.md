@@ -64,7 +64,7 @@ Some tools have been used to check accessibility:
 * Contras ratio checker: [https://contrast-ratio.com/](https://contrast-ratio.com/)
 * Code checker: [https://squizlabs.github.io/HTML_CodeSniffer/](https://squizlabs.github.io/HTML_CodeSniffer/)
 
-The accessibility behavior should be improved with a proper management of the focus/cursor. E.g. with some feedback when the movie grid is re-order or a message that tells the user about the findings of a search.
+The accessibility behavior should be improved with a proper management of the focus/cursor. E.g. provide some feedback when the movie grid is re-order or a message that tells the user about the findings of a search.
 
 ## <a name="effects"></a>Visual effects
 
@@ -93,9 +93,6 @@ Testing is without a doubt something to be improved in this application, includi
 
 ## <a name="about-the-application"></a>About the application
 
-Some considerations have to be taken into account about the time dedicated to this application.
-The effort have been directed to some hightlights in detriment of some sacrifices.
-
 ### <a name="customization"></a>Look & Feel customization
 
 The application uses SCSS variables. The main color is `#09f` and it's defined in the `src/stylesheets/variables.scss` file.
@@ -123,6 +120,6 @@ Even more, the whole application uses `$App-mainColor` variable to calculate the
 
 ## <a name="credits"></a>Credits
 
-* [Webpack ES6+ Sass Boilerplate](https://snyk.io//test/github/vadimmarkov/webpack*es6*-*sass-boilerplate)
+* [Webpack ES6+ Sass Boilerplate](https://github.com/vadimmarkov/webpack-es6-sass-boilerplate)
 * [Google Fonts](https://fonts.google.com/)
 * [Material Design Icons](http://materialdesignicons.com/) 
