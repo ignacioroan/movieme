@@ -56,6 +56,7 @@ $MovieGrid-alert-textColor: #000;
   font-size: 1.125em;
 }
 .MovieGrid-noMovies {
+  margin: 1em .5em;
   padding: 1em;
   font-family: 'Permanent Marker', sans-serif;
   background-color: $MovieGrid-alert-backgroundColor;

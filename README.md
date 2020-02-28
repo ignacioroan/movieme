@@ -8,9 +8,10 @@
 * [Desing](#design)
 * [Accessiblity](#accessibility)
 * [Visual effects](#effects)
+* [Testing](#testing)
 + [About the application](#about-the-application)
   * [Look & Feel customization](customization)
-  * [Highlights](#highlights)
+  * [Weaknesses](#weaknesses)
   * [Sacrifices](#sacrifices)
 * [Links of interest](#links)
 * [Credits](#credits)
@@ -50,7 +51,9 @@ Once installed nodejs and all the dependencies, just run `npm run build`:
 
 ## <a name="design"></a>Design
 
-The main color used has been `#09f`, but it can be easily customized (see [Look & Feel customization](customization) section).
+All styles naming conventions follow the rules of [https://suitcss.github.io/](https://suitcss.github.io/).
+
+The main color used has been `#09f`, but it can be easily customized. There is only one breakpoint to change the grid layout of the movies. Its default value is set in `50em` and it can also be configured in the `scss` variables. See [Look & Feel customization](customization) section for more details.
 
 All iconography used is vectorial. The application does not use any kind of asset, only code (except for the third party resources like fonts or the movie posters).
 
@@ -71,6 +74,23 @@ Some visual effects have been applied:
 * An animated toast effect for the searcher once the user performs a search
 * An icon rotation for the order button
 
+## <a name="testing">Testing
+
+The application has been tested in a limited number of browsers:
+
++ macOS 10.15.3
+  * Chrome 80.0.3987.122
+  * Safari 13.0.5
+  * Firefox 73.0.1
++ iOS 13.3.1
+  * Chrome
+  * Safari
++ iPadOS 13.3.1
+  * Chrome
+  * Safari
+
+Testing is without a doubt something to be improved in this application, includind unit testing coverage.
+
 ## <a name="about-the-application"></a>About the application
 
 Some considerations have to be taken into account about the time dedicated to this application.
@@ -90,7 +110,7 @@ Even more, the whole application uses `$App-mainColor` variable to calculate the
 * Accessibility
 * UX / UI
 
-### <a name="sacrifices"></a>Sacrifices
+### <a name="weaknesses"></a>Weaknesses
 
 * Image optimization
 * Features can be boosted
