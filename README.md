@@ -104,5 +104,5 @@ Even more, the whole application uses `$App-mainColor` variable to calculate the
 ## <a name="credits"></a>Credits
 
 * [Webpack ES6+ Sass Boilerplate](https://snyk.io//test/github/vadimmarkov/webpack*es6*-*sass-boilerplate)
-* [Google Fonts](https://fonts.google.com/*)*
+* [Google Fonts](https://fonts.google.com/)
 * [Material Design Icons](http://materialdesignicons.com/) 
