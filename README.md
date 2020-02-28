@@ -5,7 +5,9 @@
 * [What's this?](#whats-this)
 * [How to run the application](#how-to-run)
 * [How to build the application](#how-to-build)
+* [Desing](#design)
 * [Accessiblity](#accessibility)
+* [Visual effects](#effects)
 + [About the application](#about-the-application)
   * [Look & Feel customization](customization)
   * [Highlights](#highlights)
@@ -46,12 +48,28 @@ Once installed nodejs and all the dependencies, just run `npm run build`:
   $ npm run build
   ```
 
+## <a name="design"></a>Design
+
+The main color used has been `#09f`, but it can be easily customized (see [Look & Feel customization](customization) section).
+
+All iconography used is vectorial. The application does not use any kind of asset, only code (except for the third party resources like fonts or the movie posters).
+
 ## <a name="accessibility"></a>Accessiblity
 
 Some tools have been used to check accessibility:
 
 * Contras ratio checker: [https://contrast-ratio.com/](https://contrast-ratio.com/)
 * Code checker: [https://squizlabs.github.io/HTML_CodeSniffer/](https://squizlabs.github.io/HTML_CodeSniffer/)
+
+The accessibility behavior should be improved with a proper management of the focus/cursor. E.g. with some feedback when the movie grid is re-order or a message that tells the user about the findings of a search.
+
+## <a name="effects"></a>Visual effects
+
+Some visual effects have been applied:
+
+* A spinning icon while loading the movies
+* An animated toast effect for the searcher once the user performs a search
+* An icon rotation for the order button
 
 ## <a name="about-the-application"></a>About the application
 
@@ -85,4 +103,6 @@ Even more, the whole application uses `$App-mainColor` variable to calculate the
 
 ## <a name="credits"></a>Credits
 
-- [Webpack ES6+ Sass Boilerplate](https://snyk.io//test/github/vadimmarkov/webpack-es6-sass-boilerplate)
+* [Webpack ES6+ Sass Boilerplate](https://snyk.io//test/github/vadimmarkov/webpack*es6*-*sass-boilerplate)
+* [Google Fonts](https://fonts.google.com/*)*
+* [Material Design Icons](http://materialdesignicons.com/) 

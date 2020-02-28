@@ -34,6 +34,12 @@ a {
   color: $App-mainColor--contrast;
   padding: 0.2em 0;
   text-align: center;
+  @media screen and (max-width: $App-breakpoint-sm) {
+    font-size: 3em;
+  }
+  &:focus {
+    outline: none; // avoid displaying programmatically focus
+  }
 }
 
 .App-loader {
@@ -82,6 +88,9 @@ body {
     flex-wrap: wrap;
     .App-title {
       flex: 1;
+      @media screen and (max-width: $App-breakpoint-sm) {
+        margin-top: 1.5em;
+      }
     }
     &.is-loading {
       flex-direction: column;

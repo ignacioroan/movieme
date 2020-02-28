@@ -1,5 +1,6 @@
 // general variables
 @import './../../../stylesheets/variables.scss';
+@import './../../../stylesheets/utils.scss';
 
 // variables
 $MovieSearcher-mainColor: $App-mainColor;
@@ -16,6 +17,15 @@ body {
   }
 }
 
+@keyframes searcher-toast {
+  0% {
+    transform: translate(0, -100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 .wrapper-MovieSearcher {
   // styles that will be overwritten after the first search
   body:not(.is-home) & {
@@ -25,6 +35,8 @@ body {
     width: 100%;
     background-color: $MovieSearcher-backgroundColor;
     box-shadow: 0 0 5px 2px #333;
+    transform: translate(0, -100%);
+    animation: searcher-toast .3s forwards ease-in;
   }
 }
 
@@ -36,6 +48,10 @@ body {
     padding: 0.5em;
   }
   .MovieSearcher-button {
+    display: flex;
+    justify-content: center;
+    min-width: 3.25em;
+    height: 52px;
     line-height: 2em;
     padding: 0.5em;
     font-family: 'Permanent Marker';
@@ -48,6 +64,9 @@ body {
       &:hover,
       &:active {
         background-color: $MovieSearcher-button-onHover-backgroundColor;
+      }
+      .iconFill {
+        fill: $MovieSearcher-button-textColor;
       }
     }
     &.MovieSearcher-button--secondary {
@@ -67,10 +86,10 @@ body {
     }
 
     // style to rotate the order button
-    svg {
+    .MovieSearcher-button--orderIcon {
       transition: 0.5s transform;
     }
-    &.is-flipped svg {
+    &.is-flipped .MovieSearcher-button--orderIcon {
       transform: rotate(180deg);
     }
   }
@@ -80,6 +99,13 @@ body {
     display: flex;
     .MovieSearcher-formControl {
       flex: 1;
+    }
+    .MovieSearcher-button {
+      &.MovieSearcher-button--primary {
+        .MovieSearcher-button--primaryLabel {
+          @extend .u-srOnly;
+        }
+      }
     }
   }
 
@@ -98,6 +124,15 @@ body {
       margin: 0 0 0.2em;
       border-bottom-left-radius: 1em;
       border-bottom-right-radius: 1em;
+
+      &.MovieSearcher-button--primary {
+        .MovieSearcher-button--primaryIcon {
+          margin: 0 .5em 0 0;
+          [dir="rtl"] & {
+            margin: 0 0 0 .5em;
+          }
+        }
+      }
 
       // re-order and back button is hidden before the first search
       &.MovieSearcher-button--secondary {

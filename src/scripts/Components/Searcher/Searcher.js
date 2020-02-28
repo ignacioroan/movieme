@@ -133,7 +133,7 @@ export class Searcher {
 
           _toggleLoadingStatus(); // remove loading status
           _setHome(false); // remove home status
-          movieGrid.paintNoMovies();
+          movieGrid.paintNoMovies(); // paint no movies message
           console.error(rawData.Error);
 
         }
@@ -142,9 +142,9 @@ export class Searcher {
         console.error(error);
       }
 
-      // clear the input and focus it
+      // clear the input and focus the title to force the screen reader cursor position
       inputElement.value = '';
-      inputElement.focus();
+      document.getElementById('App_title').focus();
     };
 
     // bind onclick function to order button
